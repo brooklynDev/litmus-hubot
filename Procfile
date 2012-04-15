@@ -1,1 +1,1 @@
-web: bin/hubot -a campfire -n Pepperbot
+web: bin/hubot -a campfire -n Pepper
