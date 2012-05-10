@@ -8,7 +8,7 @@
 datetime = require "datetime"
 
 module.exports = (robot) ->
-  robot.respond /update litmus status (site|email|browser|spam|analytics|api) (green|yellow) (.*)/i, (msg) ->
+  robot.respond /update litmus status (site|email|browser|spam|analytics|api|interactive) (green|yellow) (.*)/i, (msg) ->
     timestamp = datetime.format(new Date, "%B %e%k, %Y at %i:%M%P")
     sender    = msg.message.user.name
 
