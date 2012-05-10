@@ -15,7 +15,7 @@ module.exports = (robot) ->
     payload = { sections: {} }
     payload.sections[msg.match[1]] =
       light:    msg.match[2]
-      message:  "#{timestamp}: " + msg.match[3] + " ^#{sender}"
+      message:  "#{timestamp}: " + msg.match[3]
 
     # try and use curl
     # because http.request() doesn't support digest auth
