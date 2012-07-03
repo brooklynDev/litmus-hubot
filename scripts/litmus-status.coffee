@@ -25,7 +25,6 @@ module.exports = (robot) ->
       " -H 'Content-Type: application/json'" +
       " -d '#{JSON.stringify(payload)}'" +
       " --digest #{process.env.LITMUS_STATUS_URL}"
-    msg.send cmd
 
     exec = require('child_process').exec
     exec cmd, (err) ->
