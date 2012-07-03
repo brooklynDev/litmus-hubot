@@ -1,10 +1,10 @@
 # Scrum Puns
 #
 # scrum - Display a random scrum pun
+# add scrumpun <message> - Adds a new scrum pun to the list!
 #
-# TODO: pull from a file
 
-scrums = [
+defaultScrums = [
   "Scrum Master Flex",
   "Scrum & Coke",
   "Scrumdog Millionaire",
@@ -24,5 +24,11 @@ scrums = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /scrum/i, (msg) ->
+  scrums = robot.brain.data.scrums or defaultScrums
+
+  robot.hear /scrum(\b)+/i, (msg) ->
     msg.send msg.random scrums
+
+  robot.respond /add scrumpun (.*)/i, (msg) ->
+    scrums = robot.brain.data.scrums = scrums.concat msg.match[1]
+    msg.reply "new scrum pun \"#{msg.match[1]}\" added!"
