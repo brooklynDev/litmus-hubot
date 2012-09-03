@@ -14,9 +14,11 @@ module.exports = (robot) ->
       link = { url: url }
       data = JSON.stringify { link: link }
 
+      console.log data
+
       msg.http(linx_url)
         .header('Content-type', 'application/json')
         .header('Accept', 'application/json')
-        .post(data)
+        .post(data) (err, res, body) -> console.log body
 
   robot.hear url_regex, linxify
