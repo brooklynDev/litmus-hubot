@@ -4,7 +4,7 @@
 #
 module.exports = (robot) ->
 
-  url_regex = /(https?):\/\/[a-z0-9-]+(\.[a-z0-9-]+)+([\/?].*)?/gi
+  url_regex = /(https?):\/\/[a-z0-9\-]+(\.[a-z0-9\-]+)+([\/\?].*?(?=\s|$))?/gi
   linx_url  = process.env.LITMUS_LINX_URL
 
   linxify = (msg) ->
